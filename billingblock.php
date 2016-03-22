@@ -92,6 +92,7 @@ function billingblock_civicrm_buildForm($formName, &$form) {
 
 /**
  * Get address specific profile fields
+ *
  * @param $profileFields
  *
  * @return array
@@ -101,7 +102,8 @@ function _billingblock_getProfileAddressFields($profileFields) {
 }
 
 /**
- * get billing fields
+ * Get billing fields.
+ *
  * @param integer $billingLocationID
  *
  * @return array
@@ -143,7 +145,8 @@ function billingblock_getSuppressedBillingFields($profileFields, $profileIDs, $f
 }
 
 /**
- * Get the billing fields for display
+ * Get the billing fields for display.
+ *
  * @param array $profileFields
  * @param integer $billingLocationID
  *
@@ -156,6 +159,8 @@ function billingblock_getDisplayedBillingFields($profileFields, $billingLocation
 }
 
 /**
+ * Get the fields in a name.
+ * 
  * @return array
  */
 function billingblock_getNameFields($flip = FALSE) {
@@ -199,6 +204,10 @@ function billingblock_civicrm_validateForm( $formName, &$fields, &$files, &$form
 }
 
 /**
+ * Get form profile IDs.
+ *
+ * @TODO Namespace this function.
+ * 
  * @param $form
  *
  * @return array
@@ -213,6 +222,10 @@ function getFormProfileIDs(&$form) {
   return $profileIDs;
 }
 
+/**
+ * Implements hook_civicrm_postProcess.
+ *
+ */
 function billingblock_civicrm_postProcess($formName, &$form){
   if (!billingblock_civicrm_is_billing($formName)) {
     return;
@@ -224,6 +237,7 @@ function billingblock_civicrm_postProcess($formName, &$form){
 
 /**
  * Is this form a billing form?
+ *
  * @param $formName
  *
  * @return bool
